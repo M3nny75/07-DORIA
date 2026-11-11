@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Actividad Fundamental 07 - Programacion Web -->
+    <!-- Alumna: Ashlee Alejandra Doria Martinez -->
+    <!-- Matricula: 2222792 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad Fundamental 07 - Becas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #ffeef2;
+            color: #333333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: auto;
+        }
+
+        /* Encabezado */
+        header {
+            background: #ff4d88;
+            padding: 1.2rem 3rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1550px;
+            margin: 0 auto;
+        }
+
+        .marca-portal {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-fime-header {
+            width: 50px;
+            height: 50px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+        }
+
+        .logo-fime-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .titulo-marca h1 {
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .titulo-marca p {
+            font-size: 0.88rem;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .btn-inicio-top {
+            display: inline-block;
+            padding: 9px 20px;
+            background-color: #ffffff;
+            color: #d81b60;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+
+        .btn-inicio-top:hover {
+            background-color: #ffe4ec;
+        }
+
+        /* Seccion del titulo */
+        .seccion-hero {
+            text-align: center;
+            padding: 2.2rem 1.5rem 1.2rem;
+        }
+
+        .seccion-hero h2 {
+            font-size: 2.1rem;
+            color: #c2185b;
+            margin-bottom: 8px;
+        }
+
+        .seccion-hero p {
+            color: #666666;
+            font-size: 1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Contenedor principal de 4 cuadros */
+        main {
+            padding: 1.2rem 2.5rem 3rem;
+            max-width: 1600px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .fila-becas {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 22px;
+            width: 100%;
+        }
+
+        .tarjeta-beca {
+            flex: 1 1 0;
+            min-width: 270px;
+            background: #ffffff;
+            border-radius: 20px;
+            border: 2px solid #ffccd9;
+            padding: 1.8rem 1.3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(255, 77, 136, 0.15);
+            position: relative;
+            transition: 0.2s;
+        }
+
+        .tarjeta-beca:hover {
+            transform: translateY(-5px);
+            border-color: #ff4d88;
+        }
+
+        .etiqueta-tipo {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: #ffe4ec;
+            color: #d81b60;
+            font-size: 0.78rem;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 10px;
+        }
+
+        .contenedor-imagen {
+            width: 100%;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .contenedor-imagen img {
+            max-width: 170px;
+            max-height: 110px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .info-beca h3 {
+            font-size: 1.25rem;
+            color: #333333;
+            margin-bottom: 10px;
+        }
+
+        .info-beca p {
+            font-size: 0.9rem;
+            color: #666666;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            min-height: 54px;
+        }
+
+        .acciones-beca {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .btn-alerta {
+            width: 100%;
+            padding: 11px;
+            background: #ff4d88;
+            color: #ffffff;
+            border: none;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-alerta:hover {
+            background: #e91e63;
+        }
+
+        .btn-enlace {
+            width: 100%;
+            padding: 10px;
+            background-color: #ffffff;
+            color: #d81b60;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 0.88rem;
+            border: 2px solid #ff80aa;
+            display: block;
+            transition: 0.2s;
+        }
+
+        .btn-enlace:hover {
+            background-color: #ffe4ec;
+        }
+
+        /* Boton volver fijo */
+        .btn-volver-fijo {
+            position: fixed;
+            bottom: 14px;
+            left: 20px;
+            background: #e91e63;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+        }
+
+        .btn-volver-fijo:hover {
+            background: #c2185b;
+        }
+
+        /* Pie de pagina */
+        footer {
+            margin-top: auto;
+            background: #ff4d88;
+            text-align: center;
+            padding: 1.3rem;
+            font-size: 0.95rem;
+            color: #ffffff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado con datos -->
+    <header>
+        <nav>
+            <div class="marca-portal">
+                <div class="logo-fime-header">
+                    <img src="img/fime.png" alt="Logo FIME" onerror="this.src='https://www.fime.uanl.mx/wp-content/uploads/2021/04/cropped-fime-logo-32x32.png'">
+                </div>
+                <div class="titulo-marca">
+                    <h1>Actividad Fundamental 07: Becas</h1>
+                    <p>Ashlee Alejandra Doria Martinez - 2222792</p>
+                </div>
+            </div>
+            <a href="index.html" class="btn-inicio-top">Pagina Principal</a>
+        </nav>
+    </header>
+
+    <!-- Titulo central -->
+    <section class="seccion-hero">
+        <h2>Oportunidades de Becas</h2>
+        <p>Selecciona una opcion para revisar los detalles esenciales o consulta las convocatorias directamente en sus portales oficiales.</p>
+    </section>
+
+    <!-- 4 Becas alineadas horizontalmente -->
+    <main>
+        <section class="fila-becas">
+
+            <!-- Cuadro 1: Beca Santander -->
+            <article class="tarjeta-beca">
+                <span class="etiqueta-tipo">Nacional</span>
+                <figure class="contenedor-imagen">
+                    <img src="img/santander.png" alt="Beca Santander" onerror="this.src='https://placehold.co/170x110/ffffff/d81b60?text=Santander'">
+                </figure>
+                <div class="info-beca">
+                    <h3>Beca Santander</h3>
+                    <p>Apoyo de manutencion y formacion academica continua para estudiantes de nivel superior.</p>
+                </div>
+                <div class="acciones-beca">
+                    <button type="button" class="btn-alerta" onclick="lanzarAlerta('Beca Santander', 'Requisitos:\n- Promedio minimo de 8.0\n- Ser alumno regular activo\n- Registro con RFC en la plataforma Santander Open Academy.')">
+                        Revisar Requisitos
+                    </button>
+                    <a href="https://app.santanderopenacademy.com" target="_blank" rel="noopener noreferrer" class="btn-enlace">
+                        Ir al Portal Oficial
+                    </a>
+                </div>
+            </article>
+
+            <!-- Cuadro 2: Beca BBVA -->
+            <article class="tarjeta-beca">
+                <span class="etiqueta-tipo">Fundacion</span>
+                <figure class="contenedor-imagen">
+                    <img src="img/bbva.png" alt="Beca BBVA" onerror="this.src='https://placehold.co/170x110/ffffff/d81b60?text=BBVA'">
+                </figure>
+                <div class="info-beca">
+                    <h3>Beca BBVA</h3>
+                    <p>Programa 'Chavos que Inspiran': apoyo economico mensual, acompanamiento y mentoria formativa.</p>
+                </div>
+                <div class="acciones-beca">
+                    <button type="button" class="btn-alerta" onclick="lanzarAlerta('Beca BBVA', 'Requisitos:\n- Promedio sobresaliente\n- Comprobar necesidad de apoyo socioeconomico\n- Cumplir con las etapas de formacion y mentoria.')">
+                        Revisar Requisitos
+                    </button>
+                    <a href="https://www.fundacionbbva.mx/becas-chavos-que-inspiran/" target="_blank" rel="noopener noreferrer" class="btn-enlace">
+                        Ir al Portal Oficial
+                    </a>
+                </div>
+            </article>
+
+            <!-- Cuadro 3: Beca Rectoria UANL -->
+            <article class="tarjeta-beca">
+                <span class="etiqueta-tipo">Rectoria UANL</span>
+                <figure class="contenedor-imagen">
+                    <img src="img/rectoria.png" alt="Beca Rectoria UANL" onerror="this.src='https://placehold.co/170x110/ffffff/d81b60?text=Rectoria+UANL'">
+                </figure>
+                <div class="info-beca">
+                    <h3>Beca Rectoria</h3>
+                    <p>Apoyo para exencion de cuota escolar de Rectoria UANL por bajos recursos para nivel licenciatura.</p>
+                </div>
+                <div class="acciones-beca">
+                    <button type="button" class="btn-alerta" onclick="lanzarAlerta('Beca de Escasos Recursos de Rectoria', 'Requisitos:\n- Solicitud directamente en el apartado de Becas en SIASE\n- Comprobante de ingresos familiares reciente\n- Kardex sin materias pendientes en segunda oportunidad.')">
+                        Revisar Requisitos
+                    </button>
+                    <a href="https://www.fime.uanl.mx/avisos/becas-de-escasos-recursos-de-rectoria/" target="_blank" rel="noopener noreferrer" class="btn-enlace">
+                        Ir al Portal Oficial
+                    </a>
+                </div>
+            </article>
+
+            <!-- Cuadro 4: Fundacion UANL -->
+            <article class="tarjeta-beca">
+                <span class="etiqueta-tipo">Fundacion UANL</span>
+                <figure class="contenedor-imagen">
+                    <img src="img/fundacion.png" alt="Fundacion UANL" onerror="this.src='https://placehold.co/170x110/ffffff/d81b60?text=Fundacion+UANL'">
+                </figure>
+                <div class="info-beca">
+                    <h3>Fundacion UANL</h3>
+                    <p>Programas de becas de manutencion, transporte, titulacion y movilidad internacional para la comunidad Tigre.</p>
+                </div>
+                <div class="acciones-beca">
+                    <button type="button" class="btn-alerta" onclick="lanzarAlerta('Fundacion UANL', 'Requisitos:\n- Estudiante formalmente inscrito en la UANL\n- Promedio aprobatorio\n- Postulacion en convocatorias activas de transporte o manutencion.')">
+                        Revisar Requisitos
+                    </button>
+                    <a href="https://fundacionuanl.org.mx/" target="_blank" rel="noopener noreferrer" class="btn-enlace">
+                        Ir al Portal Oficial
+                    </a>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <!-- Boton volver -->
+    <a href="index.html" class="btn-volver-fijo">Volver a Inicio</a>
+
+    <!-- Pie de pagina -->
+    <footer>
+        <p>Actividad Fundamental 07</p>
+    </footer>
+
+    <!-- Script de alertas -->
+    <script>
+        function lanzarAlerta(titulo, detalles) {
+            alert(titulo + "\n\n" + detalles);
+        }
+    </script>
+</body>
+</html>
